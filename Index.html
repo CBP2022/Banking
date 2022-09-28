@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>CyberBank</title>
+    <style>
+.navbar {
+background: #000000    
+ }
+
+ .navbar a{
+  color: rgb(0, 246, 226);
+ }
+
+ .navbar .nav-item .nav-link{
+  padding: 5px 0;
+  position: relative;
+ }
+ 
+ .navbar .nav-item .nav-link::before{
+  content:'';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background-color: rgb(234, 231, 9);
+  transition: all 0.5s ease;
+  transform: scale(0);
+}
+.navbar .nav-item .nav-link.active::before,
+.navbar .nav-item .nav-link:hover::before{
+  transform:scale(1);
+}
+
+.navbar .nav-item .nav-link .active {
+  background-color: rgb(234, 231, 9);
+	color: rgb(0, 246, 226);
+}
+
+body {
+  background-image: url('http://i.stack.imgur.com/kx8MT.gif');
+    background-size: cover;
+    
+    
+    
+    height: 100vh;
+    padding:0;
+    margin:0;
+}
+
+#mycard{
+  background-color: rgb(12, 12, 12);
+  opacity: 0.8;
+  color:rgb(209, 255, 25)
+  
+}
+
+
+
+ 
+    </style>
+    <!-- bootstrap css -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <!-- don't use this in production: -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <!-- we will put our teact component inside this div -->
+    <div id="root"></div>
+
+    <!-- load react -->
+    <script src="https://unpkg.com/react/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-router@5.2.1/umd/react-router.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-router-dom@5.2.1/umd/react-router-dom.min.js" crossorigin></script>
+
+    <!-- load our react component. -->
+    <script src="context.js" defer type="text/babel"></script>
+    <script src="navbar.js" defer type="text/babel"></script>
+    <script src="createaccount.js" defer type="text/babel"></script>
+    
+    <script src="deposit.js" defer type="text/babel"></script>
+    <script src="withdraw.js" defer type="text/babel"></script>
+    <script src="alldata.js" defer type="text/babel"></script>
+    <script src="home.js" defer type="text/babel"></script>
+    <script src="index.js" defer type="text/babel"></script>
+    
+    
+    <script>
+      function setActive(e) {
+        let target = e.target
+        let links = document.querySelectorAll('.nav-link')
+        //console.log(links)
+        links.forEach((v, k) => {
+				if (v === target) {
+					if (!v.classList.contains('active')) {
+						v.classList.add('active')
+					}
+				} else {
+					if (v.classList.contains('active')) {
+						v.classList.remove('active')
+					}
+				}
+			});
+      }
+    </script>
+  </body>
+</html>
